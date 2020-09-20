@@ -59,7 +59,7 @@ int main()
    FILE *ptr;
    int i,a;
    char s1[20];
-   
+   char b;
    
    ptr=fopen("contact.txt","r");
   printf("***please ensure that the file you enter is correct ");
@@ -73,12 +73,13 @@ int main()
     }
      printf("enter 1 for find name from the number and 2 for find number form the name\n");
      scanf("%d",&a);
+     scanf("%c",&b);
     // fflush(stdin);
     
   if(a==1)
    {
     printf("Enter a number\n");
-    scanf("%s",s1);
+    gets(s1);
     i=strlen(s1);
  
     find_name(i,s1,ptr);
@@ -86,7 +87,7 @@ int main()
    if(a==2)
    {
       printf("enter a name\n");
-      scanf("%s",s1);
+      gets(s1);
       i=strlen(s1);
   
       find_number(i,s1,ptr);

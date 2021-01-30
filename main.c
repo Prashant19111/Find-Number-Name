@@ -4,28 +4,44 @@
 
 void find_name(int i,char *s1,FILE *ptr)
 {
-    char s2[20],s3[20];
-    int j;
-    while(!feof(ptr))
+    char name[50], num[12];
+  int j = 1,k=0;
+  while (!feof(ptr))
   {
-         fgets(s2,i+1,ptr);
-         j=strcmp(s2,s1);
-         
-        if(j>0||j<0)
+    if (j % 2 != 0)
+    {
+      fgets(name, 50, ptr);
+    }
+    if (j % 2 == 0)
+    {
+      fgets(num, i+1, ptr);
+      if (!strcmp(s1, num))
       {
-          strcpy(s3,s2);
-          fgets(s2,8,ptr);
-          strcat(s3,s2);
-      }
-     
-      if(j==0)
-      { 
-        printf("Name of operator of this no. is %s",s3);
+        printf("name is %s",name);
+        k=1;
         break;
       }
-      
+      fgets(num, 2, ptr);
+    }
+    j++;
   }
-  if(j!=0)
+  //        fgets(s2,i+1,ptr);
+  //        j=strcmp(s2,s1);
+
+  //       if(j>0||j<0)
+  //     {
+  //         strcpy(s3,s2);
+  //         fgets(s2,8,ptr);
+  //         strcat(s3,s2);
+  //     }
+
+  //     if(j==0)
+  //     {
+  //       printf("Name of operator of this no. is %s",s3);
+  //       break;
+  //     }
+
+  if (k == 0)
     printf("enter a valid no.");
 }
 void find_number(int i, char *s1 ,FILE *ptr)
